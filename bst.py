@@ -25,7 +25,7 @@ def bst_comp(root1,root2):
     else:
         return ((root1.data == root2.data) and bst_comp(root1.left, root2.left)and bst_comp(root1.right, root2.right))
  
-#
+
 # def printTree(M, root, col, row, height):
 #     if root is None:
 #         return
@@ -68,4 +68,4 @@ r2 = insert(r2,20)
 r2 = insert(r2,5)
 print(bst_comp(r,r1))
 print(bst_comp(r,r2))
-#TreePrinter(r)
+TreePrinter(r)

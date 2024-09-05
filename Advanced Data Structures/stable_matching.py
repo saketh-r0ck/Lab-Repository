@@ -15,14 +15,10 @@ class Gale_Shapely:
 			m_list = men_preference[self.man[m]]
 			for w in m_list:
 				women_idx = self.woman[w]
-
 				engaged = self.woman_match[women_idx]
-				print(str(m) + " "+ str(engaged))
 				if engaged is None:
 					self.men_match[self.man[m]] = w
-					
 					self.woman_match[self.woman[w]] = m
-					
 					break
 				else: 
 					w_list = women_preference[women_idx]
@@ -32,9 +28,10 @@ class Gale_Shapely:
 						self.men_match[self.man[m]] = w
 						self.woman_match[self.woman[w]] = m
 						break
-		print(self.men_match)
-		print(self.woman_match)
-
+		
+		
+		for i in self.man:
+			print(i + " -> " + self.men_match[self.man[i]] )
 
 if __name__ == "__main__":
 	
@@ -49,9 +46,9 @@ if __name__ == "__main__":
 			['B','D','A','C']]
 	student = {'A':0,'B':1,'C':2,'D':3}
 	university = {'a':0,'b':1,'c':2,'d':3}
-	
+	print("Student oriented :")
 	obj = Gale_Shapely(student,university)
 	obj.stable_matching(student_pre,university_pre)
-
+	print("University oriented")
 	obj2 = Gale_Shapely(university,student)
 	obj2.stable_matching(university_pre,student_pre)
