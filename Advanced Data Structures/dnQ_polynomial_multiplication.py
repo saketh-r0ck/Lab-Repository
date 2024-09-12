@@ -2,7 +2,6 @@ def karatsuba_poly_mult(A, B):
     n = len(A)
     
     if n == 1:
-        # Base case: multiply two constant polynomials (single coefficients)
         return [A[0] * B[0]]
     
     # Split the polynomials into two halves
