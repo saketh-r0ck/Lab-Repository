@@ -17,6 +17,7 @@ def greedy_algorithm(holes,m,t):
             output.append(last_pos)
         current_pos = last_pos
     output.append(t)
+    print("Number of stops : " + str(len(output)))
     print(output)
         
 
