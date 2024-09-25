@@ -1,6 +1,5 @@
 
-def greedy_algorithm(holes,m,t):
-    
+def greedy_algorithm(holes,m,t): 
     current_pos = 0
     output = []
     i = 0
