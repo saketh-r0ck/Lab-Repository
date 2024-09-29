@@ -1,4 +1,4 @@
 print("HElllllooo")
 a = [1]
 b= [2]
-print([a,b])
+print(10//3)
