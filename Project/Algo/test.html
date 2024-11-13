@@ -1,0 +1,30 @@
+<script>
+  // Initialize the map
+  var map = L.map('map').setView([12.971598, 77.594566], 13); // Set initial center to start point
+
+  // Add OpenStreetMap tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  // ORS API Key
+  const apiKey = '5b3ce3597851110001cf6248498b9863fe724005ae65bfa4a30549fb';
+
+  // Start and end coordinates
+  const start = [12.971598, 77.594566]; // Replace with your real coordinates
+  const end = [13.082680, 80.270718];   // Replace with your real coordinates
+
+  // Fetch route from ORS API
+  fetch(`https://api.openrouteservice.org/v2/directions/driving-car?api_key=${apiKey}&start=${start[1]},${start[0]}&end=${end[1]},${end[0]}`)
+    .then(response => response.json())
+    .then(data => {
+      const routeCoordinates = data.routes[0].geometry.coordinates.map(coord => [coord[1], coord[0]]);
+      const routeLine = L.polyline(routeCoordinates, { color: 'blue' }).addTo(map);
+      map.fitBounds(routeLine.getBounds());
+    })
+    .catch(error => console.error('Error fetching ORS route:', error));
+
+  // Add markers for start and end points
+  L.marker(start).addTo(map).bindPopup('Start Point').openPopup();
+  L.marker(end).addTo(map).bindPopup('End Point');
+</script>
