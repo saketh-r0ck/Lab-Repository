@@ -10,16 +10,16 @@
 
 </head>
 <body onload="initMap()">
-    <h1 class="text-center">directions Route finder</h1>
-    <br>
+    <h1 class="text-center">Route finder</h1>
+    
     <div class="container">
         <div class="form-group">
-            <input type="text" class= "form-control" placeholder="Source Location" name="" id="source">
-            <input type="text" class= "form-control" placeholder="Destination Location" name="" id="destination">
+            <input type="text" class= "form-control my-2" placeholder="Source Location" name="" id="source">
+            <input type="text" class= "form-control my-2" placeholder="Destination Location" name="" id="destination">
 
         </div>
-        <button onclick="calcRoute()" class="btn btn-primary">Get Directions</button>
-        <div id="map" style="height: 500px;width: 100%;"></div>
+        <button onclick="calcRoute()" class="btn btn-primary mb-2">Get Directions</button>
+        <div id="map" class=" " style="height: 490px;width: 100%; padding-bottom:10px ;padding-top: 5px;"></div>
     </div>
 </body>
 <script>
